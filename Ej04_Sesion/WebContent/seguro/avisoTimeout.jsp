@@ -1,4 +1,4 @@
-<%@ page language="java" contentType="text/javascript; charset=ISO-8859-1"
+<%@ page language="java" contentType="application/javascrip; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
 
 function avisoSesion(){
@@ -14,9 +14,9 @@ function avisoSesion(){
 
 function mensaje(){
 	alert("La sesión va a expirar");
-	//
-	
+	//	
 }
+
 //cuando carguemos la pagina, establecemos esta funcion
 avisoSesion();
    

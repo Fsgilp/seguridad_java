@@ -29,13 +29,11 @@ public class SVLogin extends HttpServlet {
 
 	private void logout(HttpServletRequest request, HttpServletResponse response) throws IOException {
 		//Invalidamos la sesion
-		/*
 		HttpSession sesion = request.getSession();
 		if(sesion != null){
 			sesion.invalidate();
 		}
 		response.sendRedirect("login.html");
-		 */
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -71,11 +69,12 @@ public class SVLogin extends HttpServlet {
 
 				//Esto para evitar session hijacking
 				//si no existe no la crea con false, devuelve null
-				/*
+				
 				s = request.getSession(false);
 				if(s != null){
 					s.invalidate();
 				}
+				/*
 				//Desde JEE 7:
 				request.changeSessionId();
 				*/
@@ -97,7 +96,7 @@ public class SVLogin extends HttpServlet {
 				Usuario usr = new Usuario(rs.getInt("id"),
 								rs.getString("nombre"),
 								rs.getString("login"),
-								rs.getString("pw")); //null)); //Sería interesante guardar el usuario sin el password
+								null); //rs.getString("pw")); //Sería interesante guardar el usuario sin el password
 				s.setAttribute("usuario",usr);
 
 				response.sendRedirect("seguro/inicio.jsp");

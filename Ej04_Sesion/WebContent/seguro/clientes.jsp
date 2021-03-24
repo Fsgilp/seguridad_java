@@ -40,7 +40,7 @@
 		<br/>
 		<form action="../SVLogin" method="post">
 			<input type="hidden" name="accion" value="logout"/>
-			<input type="submit" class="btn btn-primary"  value="salir"/>
+			<input type="submit" class="btn btn-primary" value="salir"/>
 		</form>		
 	</div>	
 				

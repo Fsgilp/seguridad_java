@@ -1,0 +1,13 @@
+Cliente del Ej02_InyeccionXML_CXF
+
+Las clases para conectarse al webservice se generaron en
+com.curso.modelo.servicio mediante el asistente y a partir 
+del wsdl que se genero en el webservice
+
+En com.curso.modelo.entidad tenemos el UsuarioDTO del lado
+del cliente
+
+En el paquete por defecto tenemos nuestras clases
+Prueba seria una peticion normal, usando las clases proporcionadas
+PruebaInyeccion seria una peticion http pero inyectando xml 
+Aplicación seria una aplicación en swing hecha para probar

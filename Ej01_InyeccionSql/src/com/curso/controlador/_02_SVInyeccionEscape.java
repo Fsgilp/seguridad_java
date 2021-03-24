@@ -36,8 +36,9 @@ public class _02_SVInyeccionEscape extends HttpServlet {
 		//ESAPI es una api creada por la gente de www.owasp.org
 		//que nos va a ayudar a validar los datos de entrada de los usuarios
 		//saltaria una excepcion en caso de que no pudiera formar la sentencia sql correctamente
-		//login = ESAPI.encoder().encodeForSQL(new MySQLCodec(MySQLCodec.Mode.STANDARD), request.getParameter("login"));
-		//pw    = ESAPI.encoder().encodeForSQL(new MySQLCodec(MySQLCodec.Mode.STANDARD), request.getParameter("pw"));
+		
+		login = ESAPI.encoder().encodeForSQL(new MySQLCodec(MySQLCodec.Mode.STANDARD), request.getParameter("login"));
+		pw    = ESAPI.encoder().encodeForSQL(new MySQLCodec(MySQLCodec.Mode.STANDARD), request.getParameter("pw"));
 
 		//sacamos el valor para ver en que lo convierte
 		System.out.println("pw:"+pw);

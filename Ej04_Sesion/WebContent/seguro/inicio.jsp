@@ -2,11 +2,13 @@
     pageEncoding="ISO-8859-1"%>
     
 <%
-//HttpSession sesion = request.getSession();
-//if(sesion == null || sesion.getAttribute("usuario")==null){
-	//response.sendRedirect("../login.html");
-	//return;
-//}
+/*
+HttpSession sesion = request.getSession();
+if(sesion == null || sesion.getAttribute("usuario")==null){
+	response.sendRedirect("../login.html");
+	return;
+}
+*/
 %>       
     
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -25,6 +27,10 @@
 	    <br/>
 	    	<h1>
 			Página de inicio. Usr: ${usuario.nombre}
+			
+			<!-- 
+			- ${usuario.pw}
+			-->
 		</h1>
 	    <br/>
 	    <br/>

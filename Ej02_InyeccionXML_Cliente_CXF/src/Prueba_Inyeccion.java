@@ -80,9 +80,9 @@ public class Prueba_Inyeccion {
 				"<soapenv:Body>"+
 					"<modificarUsuario xmlns=\"http://servicio.modelo.curso.com/\">"+
 						"<arg0 xmlns=\"\">"+
-							"<id>1</id>"+
-							"<login>L</login>"+
-							"<pw>PW</pw>"+
+							"<id>111</id>"+
+							"<login>fulanito</login>"+
+							"<pw>1234567890</pw>"+
 							//Aqui esta la clave de la inyeccion, en este caso vamos a add
 							//al rol que le vamos a pasar el rol declarado arriba, por lo que vamos a 
 							//generar mas etiquetas xml de las que deberiamos, y el mensaje

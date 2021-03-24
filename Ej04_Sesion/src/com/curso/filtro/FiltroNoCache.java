@@ -13,7 +13,7 @@ import javax.servlet.http.HttpServletResponse;
 
 //Cachearlo todo tiene un precio, y es que el servidor puede recibir más
 //peticiones
-//@WebFilter("/seguro/*")
+@WebFilter("/seguro/*")
 public class FiltroNoCache implements Filter {
 
     public FiltroNoCache() {

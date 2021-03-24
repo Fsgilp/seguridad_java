@@ -10,7 +10,7 @@ import javax.servlet.http.HttpSessionEvent;
 import javax.servlet.http.HttpSessionListener;
 
 //Este listener se recibirá un evento cuando se inicie el contexto de la aplicación en el servidor
-//@WebListener
+@WebListener
 public class OyenteContexto implements ServletContextListener {
 
     public OyenteContexto() {
@@ -31,9 +31,9 @@ public class OyenteContexto implements ServletContextListener {
 		
 		//La cookie solo se enviará a esta url pattern
 		SessionCookieConfig scf = sce.getServletContext().getSessionCookieConfig();
-		System.out.println("PATH ANTES  :"+scf.getPath());
-		scf.setPath("/Ej05_Cookies/seguro");
-		System.out.println("PATH DESPUES:"+scf.getPath());
+		//System.out.println("PATH ANTES  :"+scf.getPath());
+		//scf.setPath("/Ej05_Cookies/seguro");
+		//System.out.println("PATH DESPUES:"+scf.getPath());
 
 		//Más opciones:		
 		scf.setHttpOnly(true); //No podrá ser accedida desde JS

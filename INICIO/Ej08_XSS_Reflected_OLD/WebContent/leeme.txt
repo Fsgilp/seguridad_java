@@ -1,0 +1,24 @@
+Hasta ahora los ataques javascript que hemos visto son persistidos, es decir,
+acaban siendo grabados de alguna manera en algun tipo de persistencia
+
+En este ejemplo vamos a ver los reflected, que son los ataques javascript
+que no acaban en la capa de persistencia de tu aplicación
+
+Este ejemplo tiene los filtros de seguridad y cache y los timeout de session
+que hemos visto en proyectos anteriores
+
+El reflected se basa en meter javascript en algun campo de un formulario para
+hacer ataques contra el usuario, aun así contra este tipo de ataques ya
+estan prevenidos muchos navegadores (este ejemplo no funciona en Chrome pero
+funciona en firefox o en ie, ya que no están prevenidos contra este ataque)
+
+Entramos por login y nos registramos
+
+El tema esta en que alguien que quisiera hacernos daño nos mandarian el codigo 
+que esta puesto en la pagina como enlace de un correo o algun otro metodo de entrada
+Por ejemplo:
+http://www.pagina.com/inicio?parametro1=alert('hola');
+(en vez de alert('hola') el codigo javascript malicioso)
+
+Simplemente probar un alert en la caja de texto para ver que si nos pueden inyectar
+algo

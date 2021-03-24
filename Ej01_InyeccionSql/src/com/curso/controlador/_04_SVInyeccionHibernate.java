@@ -52,14 +52,14 @@ public class _04_SVInyeccionHibernate extends HttpServlet {
 		//cuidado con las inyecciones
 		//Este ejemplo, aunque por debajo hibernate use prepared statement, en este caso no lo estamos
 		//usando, por lo que seguiria siendo un coladero
-		List<Usuario> rs = 
-			s.createQuery("select u from Usuario u where u.login='"+login+"' and pw='"+pw+"'").list();
+		//List<Usuario> rs = 
+		//	s.createQuery("select u from Usuario u where u.login='"+login+"' and pw='"+pw+"'").list();
 		
 		//deberemos de usar algo así, que seria el equivalente a prepared statement en hibernate
-		//Query q = s.createQuery("from Usuario u where u.login=:login and pw=:pw");
-		//q.setParameter("login", login);
-		//q.setParameter("pw", pw);
-		//List<Usuario> rs = q.list();		
+		Query q = s.createQuery("from Usuario u where u.login=:login and pw=:pw");
+		q.setParameter("login", login);
+		q.setParameter("pw", pw);
+		List<Usuario> rs = q.list();		
 		
 		if(rs.size()>0){
 			response.sendRedirect("inicio.html");

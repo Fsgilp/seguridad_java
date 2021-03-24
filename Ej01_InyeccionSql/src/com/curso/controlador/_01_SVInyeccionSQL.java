@@ -17,8 +17,8 @@ import javax.servlet.http.HttpServletResponse;
 public class _01_SVInyeccionSQL extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
-    public _01_SVInyeccionSQL() {
-        super();
+    public _01_SVInyeccionSQL() {    	
+    	super();
     }
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
