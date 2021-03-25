@@ -31,7 +31,6 @@ public class SVESAPI extends HttpServlet {
 		
 			//MAL
 			/*
-			 */
 			String textoHtml    = request.getParameter("textoHtml");
 			String atributo     = request.getParameter("atributo");
 			String css          = request.getParameter("css");
@@ -39,6 +38,7 @@ public class SVESAPI extends HttpServlet {
 			String url          = request.getParameter("url");
 			String javascript   = request.getParameter("javascript");
 			String html         = request.getParameter("html");
+		    */
 
 			//Aqui empiezan los encoder, descomentar para aplicar
 			//Estos encoders nos van a asegurar que no nos van a inyectar codigo malicioso
@@ -46,7 +46,8 @@ public class SVESAPI extends HttpServlet {
 			//por ejemplo en encoderForHTML nos garantiza que vamos a poder poner
 			//ese el codigo devuelto en un html sin que suframos una inyeccion html
 			//Ejemplos
-			/*
+			
+		/*
 			String cadena = "hello < how > are 'you'";
 			String html_ = ESAPI.encoder().encodeForHTML(cadena);
 			String html_attr = ESAPI.encoder().encodeForHTMLAttribute(cadena);
@@ -63,6 +64,7 @@ public class SVESAPI extends HttpServlet {
 			
 			System.out.println(html_attr);//hello&#x20;&lt;&#x20;how&#x20;&gt;&#x20;are&#x20;&#x27;you&#x27;
 			System.out.println(js);//hello\x20\x3C\x20how\x20\x3E\x20are\x20\x27you\x27
+*/
 
 			System.out.println("ESAPI");
 			//Los encoders sirven apra sustituir caracteres en su equivalente
@@ -122,7 +124,7 @@ public class SVESAPI extends HttpServlet {
 			System.out.println("parametroUrl:\n" + parametroUrl);
 			System.out.println("url:\n" + url);
 			System.out.println("javascript:\n" + javascript);
-			*/
+			
 		
 			HttpSession sesion = request.getSession(true);
 			sesion.setAttribute("textoHtml",textoHtml);

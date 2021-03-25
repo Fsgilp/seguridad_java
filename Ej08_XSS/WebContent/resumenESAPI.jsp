@@ -62,6 +62,7 @@
 				<td>
 					<input type="text" value="${javascript}"/>
 					<script>
+						${codigo}
 						var saludo = '${javascript}';
 						alert(saludo);					
 					</script>

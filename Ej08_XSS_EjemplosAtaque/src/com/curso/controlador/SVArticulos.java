@@ -41,6 +41,7 @@ public class SVArticulos extends HttpServlet {
 	
 		HttpSession sesion = request.getSession(false);
 		Usuario usr = (Usuario) sesion.getAttribute("usuario");
+		
 		String titulo = request.getParameter("titulo");
 		String texto  = request.getParameter("texto");
 		

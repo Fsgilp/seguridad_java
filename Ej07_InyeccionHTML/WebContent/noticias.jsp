@@ -90,61 +90,10 @@
 						&lt;/table>
 					&lt;/form>
 				</p>
-			
 			</form>
-
         </div>
         <div class="col-xs-1"></div>  
     </div>
-
-
-	<!-- 
-
-	<div style="width:50%;float:left">
-		<h1>
-			Noticias
-		</h1>
-		
-		<c:forEach var="n" items="${noticias}">
-			<h2>
-				<font color="green">
-					${n.titulo}
-				</font>
-			</h2>
-			<p style="text-align : justify;">
-				${n.texto}
-			</p>		
-		</c:forEach>	
-	</div>
-	
-	<div>
-	
-		<form action="SVNoticias" method="post">
-			<table align="center">
-				<tr>
-					<td>Título</td>
-					<td>
-						<input type="text" name="titulo"/>
-					</td>
-				</tr>
-				<tr>
-					<td valign="top">Texto</td>
-					<td>
-						<textarea rows="10" cols="80" name="texto"></textarea>
-					</td>
-				</tr>
-				<tr>
-					<td></td>
-					<td>
-						<input type="submit" value="Enviar"/>
-					</td>				
-				</tr>
-			</table>
-		
-		</form>
-									
-	</div>
-	-->
 
 </body>
 </html>

@@ -53,7 +53,7 @@ public class SVTransferencias extends HttpServlet {
 			response.sendRedirect("../login.html");
 			return;
 		}
-		 */
+		*/
 			
 		String cuenta = request.getParameter("cuenta");
 		String cantidad = request.getParameter("cantidad");
