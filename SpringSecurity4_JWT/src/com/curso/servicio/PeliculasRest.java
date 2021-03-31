@@ -111,8 +111,7 @@ public class PeliculasRest {
 				.stream()
 					.map( p -> new PeliculaDto(p))
 						.collect(Collectors.toList());
-	}
-	
+	}	
 		
 	@ExceptionHandler(value= { Exception.class })
 	public ResponseEntity<Object> procesarError(Exception ex, WebRequest request){

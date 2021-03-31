@@ -37,6 +37,8 @@
 		
 		<form action="" name="formulario" method="POST">
 		
+			<sec:csrfInput/>
+			
 			<input type="hidden" id="id" name="id"/>
 
 			<table width="800px">
@@ -58,14 +60,22 @@
 						<td align="right"><b>${expediente.investigador}</b></td>
 						<td align="center"><b>${expediente.clasificado}</b></td>
 						<td>
+						
+							<sec:authorize access="hasAnyRole('ROLE_AGENTE_ESPECIAL','ROLE_DIRECTOR')">
+								<a href="#" onclick="clasificar(${expediente.id})">clasificar</a>
+								<a href="#" onclick="desclasificar(${expediente.id})">desclasificar</a>
+							</sec:authorize>						
+						
+						
 							<a href="<c:url value='/expedientesx/mostrar/${expediente.id}'/>">mostrar</a>
 							<!-- 
 							<a href="<c:url value='/expedientesx/clasificar?id=${expediente.id}'/>">clasificar</a>
 							<a href="<c:url value='/expedientesx/desclasificar?id=${expediente.id}'/>">desclasificar</a>
 							-->
-							<!--  -->
+							<!--  
 							<a href="#" onclick="clasificar(${expediente.id})">clasificar</a>
 							<a href="#" onclick="desclasificar(${expediente.id})">desclasificar</a>
+							-->
 						</td>
 					</tr>
 				</c:forEach>

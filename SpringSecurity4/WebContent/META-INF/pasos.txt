@@ -105,7 +105,7 @@ http
 		
 
 ############################################################################################################# 
-# 7.    Proteger contraseñas de los usuarios encriptándolas
+# 7.    Proteger contraseñas de los usuarios 'encriptándolas'
 ############################################################################################################# 	
 	@Bean
 	public PasswordEncoder passwordEncoder(){

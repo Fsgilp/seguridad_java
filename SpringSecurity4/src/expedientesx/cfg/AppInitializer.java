@@ -12,6 +12,8 @@ import org.springframework.web.context.support.AnnotationConfigWebApplicationCon
 import org.springframework.web.filter.DelegatingFilterProxy;
 import org.springframework.web.servlet.DispatcherServlet;
 
+import expedientesx.controlador.OyenteSesion;
+
 public class AppInitializer implements WebApplicationInitializer {
 	
     @Override
@@ -21,6 +23,18 @@ public class AppInitializer implements WebApplicationInitializer {
         ServletRegistration.Dynamic dispatcher = servletContext.addServlet("DispatcherServlet", new DispatcherServlet(context));
         dispatcher.setLoadOnStartup(1);
         dispatcher.addMapping("/expedientesx/*");
+        
+        servletContext.addListener(new OyenteSesion());
+        
+        servletContext.addListener(new HttpSessionEventPublisher());        
+        
+
+        servletContext.addFilter("springSecurityFilterChain", 
+    		new DelegatingFilterProxy("springSecurityFilterChain"))
+    			.addMappingForUrlPatterns(null, false, "/*");    
+        
+        
+        
     }    
 
     private AnnotationConfigWebApplicationContext getContext() {

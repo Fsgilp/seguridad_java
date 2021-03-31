@@ -103,6 +103,9 @@
         </SSLHostConfig>
     </Connector>
     -->
+    
+    
+	<Connector SSLEnabled="true" acceptCount="100" connectionTimeout="20000" executor="tomcatThreadPool" keyAlias="tcserver" keystoreFile="${catalina.base}/conf/tcserver.keystore" keystorePass="changeme" maxKeepAliveRequests="15" port="8443" protocol="HTTP/1.1" redirectPort="8443" scheme="https" secure="true"/>    
 
     <!-- Define an AJP 1.3 Connector on port 8009 -->
     <Connector port="8009" protocol="AJP/1.3" redirectPort="8443"/>
@@ -149,7 +152,7 @@
              Note: The pattern used is equivalent to using pattern="common" -->
         <Valve className="org.apache.catalina.valves.AccessLogValve" directory="logs" pattern="%h %l %u %t &quot;%r&quot; %s %b" prefix="localhost_access_log" suffix=".txt"/>
 
-      <Context docBase="Ej11_XFS" path="/Ej11_XFS" reloadable="true" source="org.eclipse.jst.jee.server:Ej11_XFS"/><Context docBase="Ej04_Sesion" path="/Ej04_Sesion" reloadable="true" source="org.eclipse.jst.jee.server:Ej04_Sesion"/></Host>
+      <Context docBase="Ej11_XFS" path="/Ej11_XFS" reloadable="true" source="org.eclipse.jst.jee.server:Ej11_XFS"/><Context docBase="Ej04_Sesion" path="/Ej04_Sesion" reloadable="true" source="org.eclipse.jst.jee.server:Ej04_Sesion"/><Context docBase="Ej12_Https" path="/Ej12_Https" reloadable="true" source="org.eclipse.jst.jee.server:Ej12_Https"/><Context docBase="Ej14_JWT" path="/Ej14_JWT" reloadable="true" source="org.eclipse.jst.jee.server:Ej14_JWT"/><Context docBase="SpringSecurity4" path="/SpringSecurity4" reloadable="true" source="org.eclipse.jst.jee.server:SpringSecurity4"/><Context docBase="SpringSecurity4_JWT" path="/SpringSecurity4_JWT" reloadable="true" source="org.eclipse.jst.jee.server:SpringSecurity4_JWT"/></Host>
     </Engine>
   </Service>
 </Server>

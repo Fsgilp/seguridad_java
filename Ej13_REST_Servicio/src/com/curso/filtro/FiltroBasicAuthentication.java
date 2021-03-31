@@ -17,7 +17,7 @@ import javax.servlet.http.HttpServletResponse;
 import com.curso.modelo.entidad.Usuario;
 import com.curso.modelo.negocio.GestorUsuarios;
 
-@WebFilter("/servicios/*")
+//s@WebFilter("/servicios/*")
 public class FiltroBasicAuthentication implements Filter {
 
 	private GestorUsuarios gestorUsuarios = new GestorUsuarios();
@@ -28,7 +28,7 @@ public class FiltroBasicAuthentication implements Filter {
 	public void init(FilterConfig fConfig) throws ServletException {
 	}
 
-	public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws IOException, ServletException {
+	public void doFilter(ServletRequest request, SrvletResponse response, FilterChain chain) throws IOException, ServletException {
 		
 		HttpServletRequest rq = (HttpServletRequest) request;
 		HttpServletResponse rp = (HttpServletResponse) response;

@@ -32,19 +32,8 @@ public class PeliculasRest {
 	@PostMapping(/*path="peliculas",*/
 				 consumes=MediaType.APPLICATION_JSON_VALUE)
 	public ResponseEntity<String> insertar(@RequestBody PeliculaDto peliculaDto) throws Exception{
-
 		gestorPeliculas.insertar(peliculaDto.asPelicula());
-		return new ResponseEntity<String>("La pelicula se insertÃ³", HttpStatus.CREATED);
-
-		/*
-		try {
-			gestorPeliculas.insertar(peliculaDto.asPelicula());
-			return new ResponseEntity<String>("La pelicula se insertï¿½", HttpStatus.CREATED);
-		} catch (Exception e) {
-			e.printStackTrace();
-			return new ResponseEntity<String>("Error al insertar:"+e.getMessage(), HttpStatus.BAD_REQUEST);
-		}
-		*/
+		return new ResponseEntity<String>("La pelicula se insertó", HttpStatus.CREATED);
 	}
 
 	@PutMapping(consumes=MediaType.APPLICATION_JSON_VALUE)
