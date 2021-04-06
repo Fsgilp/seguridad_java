@@ -10,12 +10,12 @@ public class OyenteSesion implements HttpSessionListener {
     public OyenteSesion() {
     }
 
-    public void sessionCreated(HttpSessionEvent ev)  { 
-    	System.out.println("SESIÓN CREADA:"+ev.getSession().getId());
+    public void sessionCreated(HttpSessionEvent arg0)  { 
+    	System.out.println("SESIÓN CREADA");
     }
 
     public void sessionDestroyed(HttpSessionEvent ev)  { 
-    	System.out.println("SESIÓN INVALIDADA:"+ev.getSession().getId());
+    	System.out.println("SESIÓN INVALIDADA");
     }
 	
 }

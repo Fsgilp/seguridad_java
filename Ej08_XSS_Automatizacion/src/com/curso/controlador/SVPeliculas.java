@@ -13,7 +13,7 @@ import com.curso.modelo.entidad.Pelicula;
 import com.curso.xss.XSSEncoder;
 import com.curso.xss.XSSException;
 
-@WebServlet("/SVPeliculas")
+//@WebServlet("/SVPeliculas")
 public class SVPeliculas extends HttpServlet {
 
 	private static final long serialVersionUID = 1L;
@@ -56,9 +56,9 @@ public class SVPeliculas extends HttpServlet {
 		
 		//Validar los objetos
 		
-		////////////////////		
+		/////////////////////////////////////////////		
 		// Validación XSS mediante las anotaciones //
-		////////////////////		
+		/////////////////////////////////////////////		
 		try {
 			XSSEncoder.getInstancia().encode(p);
 		} catch (XSSException e) {

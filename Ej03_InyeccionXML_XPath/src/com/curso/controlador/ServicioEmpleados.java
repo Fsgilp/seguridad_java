@@ -114,6 +114,7 @@ public class ServicioEmpleados extends HttpServlet {
 			
 			//Con nuestro método podemos evitar la inyeccion...
 			//descomentandolo para validar la entrada del usuario
+			
 			/*
 			if (!checkValueForXpathInjection(idEmpleado)) {
 				System.out.println("Inyección!!!");
@@ -132,10 +133,10 @@ public class ServicioEmpleados extends HttpServlet {
 			/*
 			if(!validarEntrada(idEmpleado)){
 				System.out.println("Inyeccion!");
-				response.sendError(HttpServletResponse.SC_BAD_REQUEST,"INYECCION!!!!!");
+				response.sendError(HttpServletResponse.SC_BAD_REQUEST,"INYECCION!!!!");
 				return;
 			}
-			 */
+			*/
 			
 			///////////////////////////////
 			//Creamos el objeto que puede lanzar consultas
@@ -143,14 +144,14 @@ public class ServicioEmpleados extends HttpServlet {
 	        XPathFactory xpathfactory = XPathFactory.newInstance();
 	        XPath xpath = xpathfactory.newXPath();
 	        //Creamos la expresion xpath para buscar en nuestro xml
-	        //String xPathExpression = "/empleados/empleado[@id='" + idEmpleado + "']";
+	        String xPathExpression = "/empleados/empleado[@id='" + idEmpleado + "']";
 	        	  
 	        ///////////////////////////////////////
 			//Consultas precompiladas con parámetros
 	        //Equivalente a prepare statement en xpath
 	        //no nos podrian inyectar xpath
 	        ///////////////////////////////////////
-	        
+	        /*
 			//Esta clase la tenemos que programar nosotros
 	        SimpleVariableResolver variableResolver = new SimpleVariableResolver();
 	        
@@ -165,6 +166,7 @@ public class ServicioEmpleados extends HttpServlet {
 	        //metida como 'QName("id")'
 			String xPathExpression = "/empleados/empleado[@id=$id]";
 	        //Fin consultas con parámetros
+	        */
 	        
 	        //compilamos la expresion
 	        XPathExpression expr = xpath.compile(xPathExpression);
@@ -195,11 +197,22 @@ public class ServicioEmpleados extends HttpServlet {
 		}
 	}
 
+	//Devolvemos si una cadena tiene inyeccion xpath, es decir, si es valida o no
 	public boolean checkValueForXpathInjection(String value) throws Exception {
 		boolean isValid = true;
+		//Si value no es vacio ni nulo, comprobamos si nos estan inyectando
 		if ((value != null) && !"".equals(value)) {
-			String xpathCharList = "(=[]:,*/ ";
+			//si la cadena tiene algunos de estos elementos
+			//no será valida (Caracteres susceptibles a inyeccion Xpath)
+			String xpathCharList = "()='[]:,*/ ";
+			
+			//recorremos la cadena que nos ha metido el usuario
 			for (char c : value.toCharArray()) {
+				//indexOf devuleve la posicion del caracter que estamos buscando
+				//y en caso de que no exista devuelve '-1', por lo tanto
+				//si devuelve una posicion distinta a '-1' es que existe en 
+				//la cadena xpathCharList por lo que sera un caracter NO permitido
+				//y habremos detectado una posible inyeccion XPATH
 				if (xpathCharList.indexOf(c) != -1) {
 					isValid = false;
 					break;

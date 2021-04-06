@@ -5,25 +5,7 @@
 <meta charset="ISO-8859-1">
 	<title>Session</title>
     <link rel="stylesheet" href="css/bootstrap.css">
-	<style id="antiClickjack">body{display:none !important;}</style>
 </head>
-
-
-<script type="text/javascript">
-
-   if (self === top) {
-       var antiClickjack = document.getElementById("antiClickjack");
-       antiClickjack.parentNode.removeChild(antiClickjack);
-   } else {
-       top.location = self.location;
-   }
-   
-</script>
-
-
-
-</script>
-
 
 <body>
 
@@ -53,7 +35,7 @@
 							<div class="form-group">
 								<label class="control-label col-xs-2" for="login">Login</label>
 								<div class="col-xs-10">
-									<input type="text" class="form-control" name="login" />
+									<input type="text" class="form-control" id="login" name="login" />
 								</div>
 							</div>
 							<div class="form-group">

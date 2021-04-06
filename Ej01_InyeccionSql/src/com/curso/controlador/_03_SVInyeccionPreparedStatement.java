@@ -32,7 +32,7 @@ public class _03_SVInyeccionPreparedStatement extends HttpServlet {
 		Connection cx = null;
 		try {
 			Class.forName("org.h2.Driver");			
-			cx = DriverManager.getConnection("jdbc:h2:c:/H2/bbdd","sa","");
+			cx = DriverManager.getConnection("jdbc:h2:c:/H2/bbdd_seguridad","sa","");
 			
 			//La mejor solución suele ser crear un prepareStatement para hacer la consulta
 			//ya que previene la inyeccion sql y mejora la eficiencia de las consultas
@@ -49,7 +49,6 @@ public class _03_SVInyeccionPreparedStatement extends HttpServlet {
 		} catch (SQLException e) {
 			e.printStackTrace();
 		} catch (ClassNotFoundException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} finally {
 			try {

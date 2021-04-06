@@ -19,7 +19,7 @@ public class _02_Prueba_JAXP {
 		String xml = "<?xml version=\"1.0\" encoding=\"utf-8\"?>" +
 					 "<!DOCTYPE foo [ " +
 					 "<!ELEMENT foo ANY > " +
-					 "<!ENTITY xxe SYSTEM \"file:///d:/fichero.txt\" >]>" +
+					 "<!ENTITY xxe SYSTEM \"file:///c:/fichero.txt\" >]>" +
 					 "<cliente>"+
 					 	"<nombre>&xxe;</nombre>"+
 					 	"<direccion>bbb</direccion>"+

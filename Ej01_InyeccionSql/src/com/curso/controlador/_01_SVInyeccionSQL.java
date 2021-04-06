@@ -17,8 +17,8 @@ import javax.servlet.http.HttpServletResponse;
 public class _01_SVInyeccionSQL extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
-    public _01_SVInyeccionSQL() {    	
-    	super();
+    public _01_SVInyeccionSQL() {
+        super();
     }
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -36,7 +36,7 @@ public class _01_SVInyeccionSQL extends HttpServlet {
 			//a:a,b:b
 			
 			//c:/H2/bbdd.mv.db
-			cx = DriverManager.getConnection("jdbc:h2:c:/H2/bbdd","sa","");
+			cx = DriverManager.getConnection("jdbc:h2:c:/H2/bbdd_seguridad","sa","");
 			Statement st = cx.createStatement();
 			
 			//hay dos usuarios en la base de datos, a y b, con passwords a y b

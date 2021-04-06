@@ -6,35 +6,36 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
-
 @Entity
 @Table(name="usuario")
 public class Usuario {
 
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	private int id;
+	private Integer id;
 	private String nombre;
 	private String login;
 	private String pw;
+	private String rol;
 	
 	public Usuario() {
 		super();
 	}
 
-	public Usuario(int id, String nombre, String login, String pw) {
+	public Usuario(Integer id, String nombre, String login, String pw, String rol) {
 		super();
 		this.id = id;
 		this.nombre = nombre;
 		this.login = login;
 		this.pw = pw;
+		this.rol = rol;
 	}
 
-	public int getId() {
+	public Integer getId() {
 		return id;
 	}
 
-	public void setId(int id) {
+	public void setId(Integer id) {
 		this.id = id;
 	}
 
@@ -60,6 +61,14 @@ public class Usuario {
 
 	public void setPw(String pw) {
 		this.pw = pw;
+	}
+
+	public String getRol() {
+		return rol;
+	}
+
+	public void setRol(String rol) {
+		this.rol = rol;
 	}
 
 }

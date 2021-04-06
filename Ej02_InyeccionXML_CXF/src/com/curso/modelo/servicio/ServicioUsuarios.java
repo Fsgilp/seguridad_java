@@ -21,7 +21,6 @@ public class ServicioUsuarios {
 	//El objetivo de este metodo es modificar algun rol del usuario
 	@WebMethod
 	public void modificarUsuario(UsuarioDTO usuario){		
-		System.out.println("=====================================");
 		System.out.println("Modificando el usuario:"+usuario);		
 	}
 		

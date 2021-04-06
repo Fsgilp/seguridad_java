@@ -9,19 +9,21 @@ public class Usuario {
 	private String nombre;
 	private String login;
 	private String pw;
-
+	private String rol;
+	
 	public Usuario() {
 		super();
 	}
 
-	public Usuario(int id, String nombre, String login, String pw) {
+	public Usuario(int id, String nombre, String login, String pw, String rol) {
 		super();
 		this.id = id;
 		this.nombre = nombre;
 		this.login = login;
 		this.pw = pw;
+		this.rol = rol;
 	}
-	
+
 	public int getId() {
 		return id;
 	}
@@ -54,15 +56,12 @@ public class Usuario {
 		this.pw = pw;
 	}
 
-	//Para simplificar el ejemplo asignamos los mismos roles a todos los usuarios
-	public String getRoles() {
-		return "ADMIN,USR";
+	public String getRol() {
+		return rol;
 	}
 
-	@Override
-	public String toString() {
-		return "Usuario [id=" + id + ", nombre=" + nombre + ", login=" + login + ", pw=" + pw + ", roles=" + getRoles()
-				+ "]";
+	public void setRol(String rol) {
+		this.rol = rol;
 	}
-	
+
 }

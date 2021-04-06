@@ -7,7 +7,6 @@ public class Noticia {
 
 	public Noticia() {
 		super();
-		// TODO Auto-generated constructor stub
 	}
 
 	public Noticia(String titulo, String texto) {

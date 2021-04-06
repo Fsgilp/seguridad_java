@@ -58,7 +58,7 @@ public class SVLogin extends HttpServlet {
 		Connection cx = null;
 		try {
 			Class.forName("org.h2.Driver");			
-			cx = DriverManager.getConnection("jdbc:h2:c:/H2/bbdd","sa","");
+			cx = DriverManager.getConnection("jdbc:h2:c:/H2/bbdd_seguridad","sa","");
 			
 			PreparedStatement pst = cx.prepareStatement("select * from usuario where login=? and pw=?");
 			pst.setString(1, login);
@@ -93,7 +93,6 @@ public class SVLogin extends HttpServlet {
 		} catch (SQLException e) {
 			e.printStackTrace();
 		} catch (ClassNotFoundException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} finally {
 			try {

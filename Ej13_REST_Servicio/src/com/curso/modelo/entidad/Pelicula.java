@@ -10,7 +10,6 @@ public class Pelicula {
 
 	public Pelicula() {
 		super();
-		// TODO Auto-generated constructor stub
 	}
 
 	public Pelicula(Integer id, String titulo, String director, String genero, String fechaEstreno) {

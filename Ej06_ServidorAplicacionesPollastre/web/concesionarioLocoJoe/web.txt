@@ -1,2 +1,0 @@
-/concesionarioLocoJoe/catalogo=concesionarioLocoJoe.CatalogoAccion
-/concesionarioLocoJoe/clientes=concesionarioLocoJoe.ClientesAccion

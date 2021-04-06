@@ -14,10 +14,10 @@
 		</jaxws:features>
 
 		<!-- Este codigo para que valide la entrada contra el wsdl (true/false) -->
+		<!-- 
 		<jaxws:properties>
 			<entry key="schema-validation-enabled" value="true" />
 		</jaxws:properties>		
-		<!-- 
 		-->
 
 	</jaxws:endpoint>

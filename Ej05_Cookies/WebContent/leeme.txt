@@ -15,7 +15,7 @@ paginas (amazon por ejemplo comparte sus cookies)
 
 La cookie de session por defecto no es visible por javascript, pero podemos
 cambiar esa configuración en el servidor donde estemos, en tomcat es
-servers/tomcat v7.0/context.xml
+servers/tomcat v7.0/context.xmls
 y dentro de ese fichero si ponemos la siguiente configuración
 <Context useHttpOnly="false">
 establecemos que la cookie no va a ser usada solamente por el protocolo http

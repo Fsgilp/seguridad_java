@@ -11,7 +11,7 @@ import javax.servlet.annotation.WebFilter;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-@WebFilter("/*")
+//@WebFilter("/*")
 public class FiltroHttps implements Filter {
 	
 	public void destroy() {
@@ -26,10 +26,9 @@ public class FiltroHttps implements Filter {
 		System.out.println("Filtro HTTPS:" + httpRequest.getRequestURI());
 		
 		if(!httpRequest.isSecure()){
-			
-			//response.getWriter().append("No se admiten peticiones que no sean https");
-			 
-			
+			/*
+			response.getWriter().append("No se admiten peticiones que no sean https");
+			 */
 			httpResponse.sendRedirect("Https://"
 									  +httpRequest.getServerName()
 									  +":8443"+httpRequest.getRequestURI());

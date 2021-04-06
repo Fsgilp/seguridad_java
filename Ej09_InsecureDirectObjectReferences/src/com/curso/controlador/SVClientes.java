@@ -47,9 +47,9 @@ public class SVClientes extends HttpServlet {
 			//Cuando seleccionamos un cliente de la tabla debemmos de buscarlo en la base de datos
 			//y cargarlo en la tabla del formulario
 			//Sin AccessRefernceMap			
-			//Cliente clienteSel = gestorClientes.buscar(Integer.parseInt(request.getParameter("idCliente")));
+			Cliente clienteSel = gestorClientes.buscar(Integer.parseInt(request.getParameter("idCliente")));
 
-			//Con AccessRerenceMap
+			/*Con AccessRerenceMap
 			IntegerAccessReferenceMap armap = (IntegerAccessReferenceMap) sesion.getAttribute("armap");
 			Integer idCliente = 0;
 			//tenemos que buscar un cliente por id pero lo que nos llega es una clave indirecta
@@ -63,7 +63,7 @@ public class SVClientes extends HttpServlet {
 			Cliente clienteSel = gestorClientes.buscar(idCliente);
 			//rellenamos el cliente seleccionado con la clave indirecta para pasarsela a la pantalla
 			clienteSel.setId(new Integer(armap.getIndirectReference(idCliente)));
-			
+			*/
 						
 			request.setAttribute("clienteSel", clienteSel);			
 			siguienteVista = "formularioClientes.jsp";
@@ -76,7 +76,7 @@ public class SVClientes extends HttpServlet {
 			//la primera vez que mostramos la lista es cuando creamos RandomAccessRefereceMap
 			//El objetivo de esta clase es tener mapeadas las claves verdaderas con las claves
 			//indirectas, la clave seria la indirecta y el valor la verdadera
-			//Con AccessRefernceMap
+			/*Con AccessRefernceMap
 			//AccessReferenceMap armap = new RandomAccessReferenceMap();
 			IntegerAccessReferenceMap armap = new IntegerAccessReferenceMap();
 			for(Cliente c:clientes){
@@ -88,7 +88,7 @@ public class SVClientes extends HttpServlet {
 			}
 			//Guardamos este mapa en la session del usuario
 			sesion.setAttribute("armap", armap);			 
-			 
+			 */
 			
 			request.setAttribute("listadoClientes", clientes);
 			
@@ -110,6 +110,7 @@ public class SVClientes extends HttpServlet {
 		//de String al tipo adecuado		
 		//Sin AccessReferenceMap
 		/*
+		 */
 		int id = 0;
 		try {
 			//El id del cliente a insertar, modificar o borrar nos vendra informado en idCliente
@@ -117,11 +118,10 @@ public class SVClientes extends HttpServlet {
 		} catch (NumberFormatException e) {
 			//e.printStackTrace();
 		}
-		 */
     	//Fin
 		
 		//Con AccessReferenceMap
-		
+		/*
 		HttpSession sesion = request.getSession(true);
 		IntegerAccessReferenceMap armap = (IntegerAccessReferenceMap) sesion.getAttribute("armap");
 		Integer id = 0;
@@ -134,7 +134,7 @@ public class SVClientes extends HttpServlet {
 		} catch (AccessControlException e) {
 			e.printStackTrace();
 		} 
-		 
+   	    */
 				
 		//Habría que impedir inyecciones (XSS, HTML, etc)
 		String nombre = request.getParameter("nombre");
@@ -142,7 +142,7 @@ public class SVClientes extends HttpServlet {
 		String telefono = request.getParameter("telefono");
 		
 		//Construir objetos del modelo con los parametros recibidos
-		Cliente p = new Cliente(id, nombre, direccion, telefono);
+		Cliente c = new Cliente(id, nombre, direccion, telefono);
 		
 		//Validar los objetos
 		//...
@@ -150,14 +150,18 @@ public class SVClientes extends HttpServlet {
 		//Averiguar que nos están pidiendo
 		String accion = request.getParameter("accion");
 		//Llamar al método de negocio adecuado segun la accion
-		if("insertar".equals(accion)){
-			gestorClientes.insertar(p);
-		} else if("modificar".equals(accion)){
-			gestorClientes.modificar(p);
-		} else if("borrar".equals(accion)){
-			gestorClientes.borrar(p);
+		switch(accion) {
+		case "insertar" : 
+				gestorClientes.insertar(c);
+				break;
+			case "modificar" :
+				gestorClientes.modificar(c);
+				break;
+			case "borrar" :
+				gestorClientes.borrar(c);
+				break;			
 		}
-		
+
 		//Despues de una petición post se hace un redirect.
 		//Si se está usando MVC no se puede hacer un redirect a una vista
 		//Se hace un redirect al controlador que muestre la vista que nos 

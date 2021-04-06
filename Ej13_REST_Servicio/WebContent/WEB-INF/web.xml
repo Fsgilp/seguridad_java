@@ -67,16 +67,16 @@
            userRoleTable="user_roles" roleNameCol="role_name"/>
 	-->
 
- 
+	<!-- 
 	<login-config>
 		<auth-method>BASIC</auth-method>
 		<realm-name>Basic Authentication</realm-name>
 	</login-config>
-	<!-- 
+	<!- - 
 	las constraint van a definir lo que queremos establecer
 	como securizado, es decir que se necesite el user y el pass
 	en la cabecera , esto securizara los js y css
-	-->
+	- ->
 	<security-constraint>
 		<web-resource-collection>
 			<web-resource-name>Public</web-resource-name>
@@ -85,10 +85,10 @@
 			<url-pattern>/css/*</url-pattern>
 		</web-resource-collection>
 	</security-constraint>
-	<!-- 
+	<!- - 
 	Aqui vamos a securizar cualquier URL con los http metodos
 	correspondientes
-	-->
+	- ->
 	<security-constraint>
 		<web-resource-collection>
 			<web-resource-name>All Resources</web-resource-name>
@@ -100,23 +100,23 @@
 			<http-method>PATCH</http-method>
 			<http-method>HEAD</http-method>
 		</web-resource-collection>
-		<!-- 
+		<!- - 
 		y el rol que tienen que tener los usuarios para acceder
-		-->
+		- ->
 		<auth-constraint>
 			<role-name>admin</role-name>
 			<role-name>usr</role-name>
 		</auth-constraint>
 	</security-constraint>
-	<!-- 
+	<!- - 
 	tambien definimos los roles
-	-->
+	- ->
 	<security-role>
 		<role-name>admin</role-name>
 	</security-role>
 	<security-role>
 		<role-name>usr</role-name>
 	</security-role>
-
+	-->
 
 </web-app>

@@ -24,7 +24,7 @@ public class SVInformes extends HttpServlet {
 		
 		//Para evitar este tipo de ataques siempre debemos de sanear la entrada
 		//%0d%0a
-		//formato = formato.replaceAll("\\r|\\n", "");
+		formato = formato.replaceAll("\\r|\\n", "");
 		
 		System.out.println(formato);
 		response.setHeader("Content-Type", formato);
@@ -37,34 +37,3 @@ public class SVInformes extends HttpServlet {
 	}
 
 }
-
-/*
-
-"text/htmlCRLFCRLF"
-
-
-
-
-
-
-
-Content-Type: text/html
-
-
-
-
-otros headersLF
-CRLF
-CR
-BODY
-
-*/
-
-
-
-
-
-
-
-
-

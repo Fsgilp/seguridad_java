@@ -42,7 +42,7 @@ public class SVLogin extends HttpServlet {
 		Connection cx = null;
 		try {
 			Class.forName("org.h2.Driver");
-			cx = DriverManager.getConnection("jdbc:h2:c:/H2/bbdd","sa","");
+			cx = DriverManager.getConnection("jdbc:h2:c:/H2/bbdd_seguridad","sa","");
 
 			PreparedStatement pst = cx.prepareStatement("select * from usuario where login=? and pw=?");
 			pst.setString(1, login);
@@ -54,8 +54,8 @@ public class SVLogin extends HttpServlet {
 				Usuario usuario = new Usuario(rs.getInt("id"),
 						rs.getString("nombre"),
 						rs.getString("login"),
-						rs.getString("pw")); 
-
+						rs.getString("pw"),
+						rs.getString("rol")); 
 				byte[] clave = CriptografiaUtil.clave.getBytes();
 
 	            String token = Jwts.builder()
@@ -65,9 +65,8 @@ public class SVLogin extends HttpServlet {
 	                .setAudience("secure-app")
 	                .setSubject(usuario.getLogin())
 	                .setExpiration(new Date(System.currentTimeMillis() + 864000000))
-	                .claim("roles", usuario.getRoles())
+	                .claim("rol", usuario.getRol())
 	                .compact();
-
 	            response.addHeader("Authorization", "Bearer " + token);
 				
 			} else {

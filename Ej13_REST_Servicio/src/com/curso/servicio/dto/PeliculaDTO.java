@@ -15,7 +15,6 @@ public class PeliculaDTO {
 
 	public PeliculaDTO() {
 		super();
-		// TODO Auto-generated constructor stub
 	}
 
 	public PeliculaDTO(Pelicula pelicula){

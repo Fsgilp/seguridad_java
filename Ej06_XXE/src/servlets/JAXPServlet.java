@@ -39,7 +39,7 @@ public class JAXPServlet extends HttpServlet {
         	sb.append(s.nextLine());
         }
         String xml = sb.toString();
-        //Podemos examinar aqui el xml en bruto buscando entidades externas '&entidad;' 'SYSTEM'
+        //Podemos examinar aqui el xml en bruto buscando entidades '&entidad;'
         System.out.println("XML:");
         System.out.println(xml);		
 		
@@ -53,19 +53,19 @@ public class JAXPServlet extends HttpServlet {
 		    //FEATURE = "http://apache.org/xml/features/disallow-doctype-decl";
 		    //dbf.setFeature(FEATURE, true);
 
-			/*
+		    /*
 		    // If you can't completely disable DTDs, then at least do the following:
 		    // Xerces 1 - http://xerces.apache.org/xerces-j/features.html#external-general-entities
 		    // Xerces 2 - http://xerces.apache.org/xerces2-j/features.html#external-general-entities
 		    // JDK7+ - http://xml.org/sax/features/external-general-entities
-		    //FEATURE = "http://xml.org/sax/features/external-general-entities";
-		    //dbf.setFeature(FEATURE, false);
+		    FEATURE = "http://xml.org/sax/features/external-general-entities";
+		    dbf.setFeature(FEATURE, false);
 
 		    // Xerces 1 - http://xerces.apache.org/xerces-j/features.html#external-parameter-entities
 		    // Xerces 2 - http://xerces.apache.org/xerces2-j/features.html#external-parameter-entities
 		    // JDK7+ - http://xml.org/sax/features/external-parameter-entities
-		    //FEATURE = "http://xml.org/sax/features/external-parameter-entities";
-		    //dbf.setFeature(FEATURE, false);
+		    FEATURE = "http://xml.org/sax/features/external-parameter-entities";
+		    dbf.setFeature(FEATURE, false);
 
 		    // Disable external DTDs as well
 		    FEATURE = "http://apache.org/xml/features/nonvalidating/load-external-dtd";
@@ -97,8 +97,7 @@ public class JAXPServlet extends HttpServlet {
 			}
 		
 			//Simulamos que el cliente se inserta y recibe un ID
-			//gestorClientes.insertarCliente(cliente)
-			cliente.setId((int) Math.round(Math.random()*10_000));
+			cliente.setId((int) Math.round(Math.random()*10000));
 			
 			response.getWriter().append("Cliente insertado: "+cliente);
 

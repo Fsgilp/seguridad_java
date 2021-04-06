@@ -30,7 +30,6 @@ public class SVESAPI extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 			//MAL
-			/*
 			String textoHtml    = request.getParameter("textoHtml");
 			String atributo     = request.getParameter("atributo");
 			String css          = request.getParameter("css");
@@ -38,34 +37,16 @@ public class SVESAPI extends HttpServlet {
 			String url          = request.getParameter("url");
 			String javascript   = request.getParameter("javascript");
 			String html         = request.getParameter("html");
-		    */
+			/*
+			*/
 
 			//Aqui empiezan los encoder, descomentar para aplicar
 			//Estos encoders nos van a asegurar que no nos van a inyectar codigo malicioso
 			//siempre y cuando usemos el encoder apropiado para el destion de los parametros
 			//por ejemplo en encoderForHTML nos garantiza que vamos a poder poner
 			//ese el codigo devuelto en un html sin que suframos una inyeccion html
-			//Ejemplos
 			
-		/*
-			String cadena = "hello < how > are 'you'";
-			String html_ = ESAPI.encoder().encodeForHTML(cadena);
-			String html_attr = ESAPI.encoder().encodeForHTMLAttribute(cadena);
-			String js = ESAPI.encoder().encodeForJavaScript(cadena);
-			System.out.println("Ejemplos encoders");
-			System.out.println(html_);
-			//la salida de esto de arriba seria
-			//hello &lt; how &gt; are &#x27;you&#x27;
-			//es decir, va a sustituir las etiquetas por &lt; y &gt;
-			//de tal manera que el navegador no lo va a interpretar como etiquetas
-			//html y lo va a escribir como si fuera texto plano
-			//el resultado de pegar el codigo de arriba en un navegador sería
-			//hello < how > are 'you'
-			
-			System.out.println(html_attr);//hello&#x20;&lt;&#x20;how&#x20;&gt;&#x20;are&#x20;&#x27;you&#x27;
-			System.out.println(js);//hello\x20\x3C\x20how\x20\x3E\x20are\x20\x27you\x27
-*/
-
+			/*
 			System.out.println("ESAPI");
 			//Los encoders sirven apra sustituir caracteres en su equivalente
 			//Este permite caracteres, letras, etc. Pero si se encuentran
@@ -108,6 +89,8 @@ public class SVESAPI extends HttpServlet {
 			//practicamente todo
 			//si queremos poner algo en codigo javascript, solo podemos permitir
 			//poner valor de variables, es decir, texto
+			
+			
 			String javascript = ESAPI.encoder().encodeForJavaScript(request.getParameter("javascript"));
 			
 			String html       = request.getParameter("html");
@@ -124,7 +107,7 @@ public class SVESAPI extends HttpServlet {
 			System.out.println("parametroUrl:\n" + parametroUrl);
 			System.out.println("url:\n" + url);
 			System.out.println("javascript:\n" + javascript);
-			
+			*/
 		
 			HttpSession sesion = request.getSession(true);
 			sesion.setAttribute("textoHtml",textoHtml);

@@ -35,6 +35,7 @@ function funcionKeyLogger(){
 //Fin del key logger
 
 function accederIframes(){
+	
 	var iframe2 = document.getElementById("iframe2");
 	var innerDoc2 = iframe2.contentDocument || iframe2.contentWindow.document;
 	console.log(innerDoc2.getElementById("dato").value);
@@ -60,7 +61,7 @@ function accederIframes(){
 <h2 align="center"><font color="lightGreen">--disable-web-security</font></h2>
 
 <p align="center">
- 	<iframe id="iframe1" src="http://127.0.0.1:8080/Ej04_Sesion/login.html"></iframe>
+ 	<iframe id="iframe1" src="http://localhost:8080/Ej04_Sesion/login.html"></iframe>
 	<iframe id="iframe2" src="contenido.html"></iframe>
 </p>
 

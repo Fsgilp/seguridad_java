@@ -1,9 +1,15 @@
 package com.curso.modelo.persistencia.util;
 
+import java.util.HashMap;
+import java.util.Map;
+
 import org.hibernate.SessionFactory;
-import org.hibernate.cfg.Configuration;
-import org.hibernate.service.ServiceRegistry;
-import org.hibernate.service.ServiceRegistryBuilder;
+import org.hibernate.boot.MetadataSources;
+import org.hibernate.boot.registry.StandardServiceRegistry;
+import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
+import org.hibernate.cfg.Environment;
+
+import com.curso.modelo.entidad.Cliente;
 
 public class HibernateUtil {
 
@@ -12,10 +18,21 @@ public class HibernateUtil {
 	public static SessionFactory getSF(){
 		
 		if(sf == null){
-		    Configuration configuration = new Configuration();
-		    configuration.configure("com/curso/cfg/hibernate.cfg.xml");
-		    ServiceRegistry serviceRegistry = new ServiceRegistryBuilder().applySettings(configuration.getProperties()).buildServiceRegistry();        
-		    sf = configuration.buildSessionFactory(serviceRegistry);				
+		    Map<String, String> settings = new HashMap<>();
+		        settings.put(Environment.DRIVER, "org.h2.Driver");
+		        settings.put(Environment.URL, "jdbc:h2:file:C:/H2/bbdd_seguridad");
+		        settings.put(Environment.USER, "sa");
+		        settings.put(Environment.PASS, "");
+		        settings.put(Environment.DIALECT, "org.hibernate.dialect.H2Dialect");
+		        settings.put(Environment.HBM2DDL_AUTO, "update");
+				settings.put(Environment.SHOW_SQL, "true");
+				settings.put(Environment.CURRENT_SESSION_CONTEXT_CLASS, "thread");
+
+			StandardServiceRegistry standardRegistry =
+					new StandardServiceRegistryBuilder().applySettings(settings).build();
+			MetadataSources sources = new MetadataSources( standardRegistry );
+			sources.addAnnotatedClass(Cliente.class);
+			sf = sources.getMetadataBuilder().build().buildSessionFactory();
 		}
 		
 		return sf;		

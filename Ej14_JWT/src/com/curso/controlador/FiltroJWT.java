@@ -51,7 +51,7 @@ public class FiltroJWT implements Filter {
                     .getSubject();
                 
                 System.out.print("Usuario:"+username+" ");
-                System.out.println(parsedToken.getBody().get("roles"));
+                System.out.println(parsedToken.getBody().get("rol"));
 
                 //DO FILTER
                 chain.doFilter(request, response);

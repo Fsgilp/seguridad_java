@@ -23,11 +23,6 @@ saludar()
 <body>
 
 	<h1 align="center">
-	
-		${nonce}
-		
-		<br/>
-	
 		<font color="green">
 			Pagina de inicio. Usuario: ${usuario.nombre}
 		</font>
